@@ -1,0 +1,210 @@
+.intentions__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s-5);
+  margin-bottom: var(--s-5);
+}
+
+.intentions__title {
+  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.1rem);
+  margin-top: var(--s-1);
+}
+
+/* --- tabs ---------------------------------------------------------------- */
+
+.intentions__tabs {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  margin-bottom: var(--s-4);
+  background: var(--paper-sunk);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-inset);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.intentions__tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.intentions__tab {
+  flex: 1;
+  min-width: max-content;
+  padding: var(--s-2) var(--s-4);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: 550;
+  color: var(--ink-soft);
+  background: transparent;
+  border: none;
+  border-radius: calc(var(--r-md) - 3px);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color var(--t-fast), color var(--t-fast), box-shadow var(--t-fast);
+}
+
+.intentions__tab:hover {
+  color: var(--ink);
+}
+
+.intentions__tab.is-on {
+  color: var(--ink);
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- filters ------------------------------------------------------------- */
+
+.intentions__filters {
+  display: grid;
+  grid-template-columns: minmax(200px, 260px) 1fr auto;
+  align-items: center;
+  gap: var(--s-3);
+  margin-bottom: var(--s-5);
+}
+
+.intentions__search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.intentions__search > svg {
+  position: absolute;
+  left: var(--s-3);
+  color: var(--ink-faint);
+  pointer-events: none;
+}
+
+.intentions__search .input {
+  padding-left: 2.35rem;
+  padding-right: 2.1rem;
+}
+
+/* Hide the browser's own search clear button — we draw our own. */
+.intentions__search .input::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+.intentions__clear {
+  position: absolute;
+  right: 6px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  color: var(--ink-faint);
+  background: var(--paper-sunk);
+  border: none;
+  border-radius: var(--r-round);
+  cursor: pointer;
+}
+
+.intentions__clear:hover {
+  color: var(--ink);
+}
+
+.intentions__attrs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.intentions__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px var(--s-3);
+  font-family: inherit;
+  font-size: var(--text-xs);
+  font-weight: 550;
+  color: var(--ink-soft);
+  background: var(--paper-raised);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--r-round);
+  cursor: pointer;
+  transition: all var(--t-fast) var(--ease-out);
+}
+
+.intentions__pill:hover {
+  border-color: var(--attr-hue, var(--ink-faint));
+  color: var(--ink);
+}
+
+.intentions__pill.is-on {
+  color: var(--attr-hue, var(--ink));
+  border-color: var(--attr-hue, var(--ink-soft));
+  background: color-mix(in srgb, var(--attr-hue, var(--ink-soft)) 12%, transparent);
+}
+
+.intentions__sort .select {
+  width: auto;
+  min-width: 140px;
+  font-size: var(--text-sm);
+  padding-block: 0.5rem;
+}
+
+.intentions__count {
+  margin-bottom: var(--s-3);
+  font-size: var(--text-sm);
+  color: var(--ink-faint);
+}
+
+.intentions__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* --- responsive ---------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .intentions__filters {
+    grid-template-columns: 1fr auto;
+  }
+
+  .intentions__attrs {
+    grid-column: 1 / -1;
+    order: 3;
+  }
+}
+
+@media (max-width: 560px) {
+  .intentions__head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--s-4);
+  }
+
+  .intentions__head .btn {
+    width: 100%;
+  }
+
+  .intentions__filters {
+    grid-template-columns: 1fr;
+  }
+
+  .intentions__sort .select {
+    width: 100%;
+  }
+
+  .intentions__attrs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: var(--s-1);
+    scrollbar-width: none;
+  }
+
+  .intentions__attrs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .intentions__pill {
+    flex-shrink: 0;
+  }
+}

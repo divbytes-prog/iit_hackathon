@@ -1,0 +1,52 @@
+.notfound {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  padding: var(--s-5);
+  text-align: center;
+}
+
+.notfound__inner {
+  max-width: 44ch;
+}
+
+.notfound__mark {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin: 0 auto var(--s-5);
+  color: var(--ink-faint);
+  background: var(--paper-sunk);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--r-round);
+}
+
+.notfound__code {
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variation-settings: 'SOFT' 60, 'WONK' 1, 'opsz' 72;
+  color: var(--paper-edge);
+}
+
+.notfound__title {
+  font-size: var(--text-xl);
+  margin: var(--s-3) 0 var(--s-3);
+}
+
+.notfound__body {
+  font-size: var(--text-base);
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.notfound__actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--s-3);
+  margin-top: var(--s-6);
+  flex-wrap: wrap;
+}
