@@ -1,48 +1,119 @@
-# Dependencies
-node_modules/
-.pnp/
-.pnp.js
+# =============================================================================
+# Hearthlog — .gitignore
+#
+# This repository is public, so the rule below the line about secrets is not a
+# tidiness preference. Bots scrape GitHub for connection strings continuously;
+# a committed Atlas URI is typically found and abused within minutes, and the
+# history keeps it readable even after a later "remove secrets" commit.
+#
+# Everything a judge or a deployment needs IS committed: all source, both
+# package-lock.json files, the .env.example templates, and the deploy configs.
+# =============================================================================
 
-# Builds
-dist/
-build/
-.vite/
 
-# Environment — secrets live here, never in the repo.
-# The committed templates are backend/.env.example and frontend/.env.example.
+# --- Secrets. Never commit. --------------------------------------------------
+# The templates (backend/.env.example, frontend/.env.example) are committed and
+# document every variable; the filled-in files stay local.
 .env
 .env.*
 !.env.example
-atlas-credentials.env
+!.env.template
 
-# Logs
+# The Atlas onboarding file — contains a live username and password.
+atlas-credentials.env
+*credentials*.env
+
+# Keys and certificates, in case any ever land here.
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+serviceAccountKey.json
+
+
+# --- Dependencies ------------------------------------------------------------
+# ~76 MB across the two packages, and fully reproducible from the committed
+# lockfiles with `npm install`. Hosts run that themselves.
+node_modules/
+.pnp/
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+
+
+# --- Build output ------------------------------------------------------------
+# Vercel, Netlify and Render all run the build themselves; committing dist/
+# only creates merge conflicts and stale bundles.
+dist/
+dist-ssr/
+build/
+out/
+.vite/
+*.local
+
+
+# --- Logs and runtime junk ---------------------------------------------------
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 .server.log
 .server.err.log
-logs/
+pids/
+*.pid
+*.seed
 
-# Editors
+
+# --- Test and coverage output ------------------------------------------------
+coverage/
+.nyc_output/
+*.lcov
+
+
+# --- Caches ------------------------------------------------------------------
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+.npm/
+.node_repl_history
+
+
+# --- Editors and IDEs --------------------------------------------------------
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea/
 *.swp
 *.swo
+*.sublime-workspace
+*~
 
-# OS
+
+# --- Operating system --------------------------------------------------------
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
 Thumbs.db
-desktop.ini
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
 
-# Test and coverage output
-coverage/
-.nyc_output/
 
-# Platform
+# --- Deployment platforms ----------------------------------------------------
 .vercel
 .netlify
+.now
 
-# Claude Code local tooling
+
+# --- Local agent tooling -----------------------------------------------------
+# Editor launch config for this machine; of no use to anyone cloning the repo.
+# Delete this line if you would rather ship it.
 .claude/
