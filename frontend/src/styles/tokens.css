@@ -15,7 +15,7 @@
 
   --ink: #3b342c;
   --ink-soft: #6b6153;
-  --ink-faint: #9a8f7e;
+  --ink-faint: #7e7362;
 
   /* --- Accents ---------------------------------------------------------- */
   --terracotta: #c97b5a;
@@ -113,7 +113,7 @@
   --paper-edge: #ddc9ad;
   --ink: #40342a;
   --ink-soft: #71604f;
-  --ink-faint: #a08e78;
+  --ink-faint: #806e58;
   --terracotta: #c26a44;
   --terracotta-deep: #9d5030;
   --ochre: #d99a2b;
@@ -127,7 +127,7 @@
   --paper-edge: #cdd6d3;
   --ink: #2f3937;
   --ink-soft: #5c6a67;
-  --ink-faint: #8b9995;
+  --ink-faint: #677571;
   --terracotta: #7f94a3;
   --terracotta-deep: #5d7688;
   --terracotta-wash: #e2e9ed;
@@ -145,7 +145,7 @@
   --paper-edge: #3a352f;
   --ink: #ece3d4;
   --ink-soft: #b3a898;
-  --ink-faint: #7d7466;
+  --ink-faint: #938a7c;
   --terracotta: #d98b64;
   --terracotta-deep: #e5a582;
   --terracotta-wash: #33261f;
@@ -179,7 +179,7 @@
     --paper-edge: #3a352f;
     --ink: #ece3d4;
     --ink-soft: #b3a898;
-    --ink-faint: #7d7466;
+    --ink-faint: #938a7c;
     --terracotta: #d98b64;
     --terracotta-deep: #e5a582;
     --terracotta-wash: #33261f;
