@@ -5,13 +5,13 @@
  * are supposed to fail: stat tampering, cross-account access, double
  * completion, empty titles, insufficient funds. Run with:
  *
- *   npm run test:api            (expects the server on :5000)
+ *   npm run test:api            (expects the server on :4000)
  *   API_URL=... npm run test:api
  *
  * It creates two throwaway accounts and cleans up after itself.
  */
 
-const BASE = process.env.API_URL ?? 'http://localhost:5000/api/v1';
+const BASE = process.env.API_URL ?? 'http://localhost:4000/api/v1';
 
 let passed = 0;
 let failed = 0;

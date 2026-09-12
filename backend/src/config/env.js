@@ -28,7 +28,7 @@ export const env = {
   nodeEnv,
   isProduction: nodeEnv === 'production',
   isTest: nodeEnv === 'test',
-  port: toNumber(read('PORT', { fallback: '5000' }), 5000),
+  port: toNumber(read('PORT', { fallback: '4000' }), 4000),
 
   mongoUri: read('MONGODB_URI', { required: true }),
   mongoDbName: read('MONGODB_DB_NAME', { fallback: 'hearthlog' }),

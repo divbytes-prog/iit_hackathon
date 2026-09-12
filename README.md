@@ -156,7 +156,7 @@ cd backend
 npm install
 cp .env.example .env      # then fill in MONGODB_URI and the two JWT secrets
 npm run seed              # loads the 15 shop items (idempotent)
-npm run dev               # http://localhost:5000
+npm run dev               # http://localhost:4000
 ```
 
 Generate the JWT secrets with:
@@ -170,14 +170,14 @@ node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"
 ```bash
 cd frontend
 npm install
-cp .env.example .env      # defaults point at http://localhost:5000
+cp .env.example .env      # defaults point at http://localhost:4000
 npm run dev               # http://localhost:5173
 ```
 
 **3. Check it came up**
 
 ```bash
-curl http://localhost:5000/api/v1/health
+curl http://localhost:4000/api/v1/health
 # {"success":true,"data":{"status":"ok","database":"connected",...}}
 ```
 
@@ -190,7 +190,7 @@ curl http://localhost:5000/api/v1/health
 | Variable | Required | Default | Notes |
 |---|:---:|---|---|
 | `NODE_ENV` | | `development` | `production` enables secure cookies and a strict CSP |
-| `PORT` | | `5000` | |
+| `PORT` | | `4000` | |
 | `MONGODB_URI` | ✅ | — | Full `mongodb+srv://` connection string |
 | `MONGODB_DB_NAME` | | `hearthlog` | |
 | `JWT_ACCESS_SECRET` | ✅ | — | Long random string |
@@ -206,7 +206,7 @@ curl http://localhost:5000/api/v1/health
 
 | Variable | Required | Default | Notes |
 |---|:---:|---|---|
-| `VITE_API_BASE_URL` | | `http://localhost:5000/api/v1` | Include the `/api/v1` suffix |
+| `VITE_API_BASE_URL` | | `http://localhost:4000/api/v1` | Include the `/api/v1` suffix |
 | `VITE_SITE_URL` | | `http://localhost:5173` | Used for canonical and Open Graph tags |
 
 Both files ship as `.env.example`. Neither `.env` is committed.

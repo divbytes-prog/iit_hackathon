@@ -10,7 +10,7 @@
  *     what lets the UI show an offline banner instead of a scary red toast
  */
 
-const BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:5000/api/v1').replace(
+const BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:4000/api/v1').replace(
   /\/$/,
   ''
 );
