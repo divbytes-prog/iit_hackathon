@@ -1,0 +1,208 @@
+/* --- skeletons ----------------------------------------------------------- */
+
+.skelist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skelist__row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  background: var(--paper-raised);
+  border: 1px solid var(--paper-edge);
+  border-left: 3px solid var(--paper-sunk);
+  border-radius: var(--r-md);
+}
+
+.skelist__lines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding-top: 3px;
+}
+
+.skelist__chips {
+  display: flex;
+  gap: var(--s-2);
+}
+
+/* --- empty --------------------------------------------------------------- */
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--s-8) var(--s-5);
+  background: var(--paper-sunk);
+  border: 1px dashed var(--paper-edge);
+  border-radius: var(--r-lg);
+}
+
+.empty__icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: var(--s-4);
+  color: var(--ink-faint);
+  background: var(--paper-raised);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--r-round);
+}
+
+.empty__title {
+  font-size: var(--text-md);
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin-bottom: var(--s-2);
+}
+
+.empty__body {
+  max-width: 42ch;
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.empty__action {
+  margin-top: var(--s-5);
+}
+
+/* --- error --------------------------------------------------------------- */
+
+.errstate {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  background: var(--danger-wash);
+  border: 1px solid color-mix(in srgb, var(--danger) 28%, transparent);
+  border-radius: var(--r-md);
+}
+
+.errstate__icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  color: var(--danger);
+}
+
+.errstate__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.errstate__title {
+  font-size: var(--text-base);
+  font-family: var(--font-body);
+  font-weight: 650;
+  color: var(--ink);
+  letter-spacing: 0;
+}
+
+.errstate__text {
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  line-height: 1.45;
+  margin-top: 2px;
+}
+
+/* --- confirm ------------------------------------------------------------- */
+
+.confirm {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  display: grid;
+  place-items: center;
+  padding: var(--s-5);
+  background: color-mix(in srgb, var(--ink) 42%, transparent);
+  backdrop-filter: blur(2px);
+}
+
+.confirm__panel {
+  width: min(400px, 100%);
+  padding: var(--s-6);
+  background: var(--paper-raised);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.confirm__panel:focus {
+  outline: none;
+}
+
+.confirm__title {
+  font-size: var(--text-lg);
+  margin-bottom: var(--s-2);
+  text-wrap: balance;
+}
+
+.confirm__body {
+  font-size: var(--text-base);
+  color: var(--ink-soft);
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.confirm__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s-3);
+  margin-top: var(--s-6);
+}
+
+.confirm__destroy {
+  --btn-bg: var(--danger);
+  --btn-fg: #fff;
+  --btn-edge: var(--danger);
+}
+
+.confirm__destroy:hover:not(:disabled) {
+  --btn-bg: color-mix(in srgb, var(--danger) 85%, #000);
+}
+
+[data-theme='midnight'] .confirm__destroy {
+  --btn-fg: #2a1614;
+}
+
+@media (max-width: 480px) {
+  .confirm__actions {
+    flex-direction: column-reverse;
+  }
+
+  .confirm__actions .btn {
+    width: 100%;
+  }
+}
+
+/* --- offline banner ------------------------------------------------------ */
+
+.offline {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-4);
+  font-size: var(--text-sm);
+  font-weight: 550;
+  color: #fff;
+  background: var(--ink-soft);
+}
+
+[data-theme='midnight'] .offline {
+  color: #1b1916;
+}

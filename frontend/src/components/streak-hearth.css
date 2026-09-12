@@ -1,0 +1,147 @@
+.hearth {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  padding: var(--s-4) var(--s-5);
+  background: var(--paper-raised);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--t-med) var(--ease-out);
+}
+
+.hearth--lit {
+  border-color: color-mix(in srgb, var(--terracotta) 40%, var(--paper-edge));
+}
+
+.hearth--at-risk {
+  border-color: color-mix(in srgb, var(--ochre) 42%, var(--paper-edge));
+}
+
+.hearth__art {
+  position: relative;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-md);
+  background: var(--paper-sunk);
+}
+
+.hearth--lit .hearth__art {
+  background: var(--terracotta-wash);
+}
+
+.hearth--at-risk .hearth__art {
+  background: var(--ochre-wash);
+}
+
+.hearth__mug {
+  display: grid;
+  place-items: center;
+  color: var(--ink-faint);
+  transition: color var(--t-med) var(--ease-out);
+}
+
+.hearth--lit .hearth__mug {
+  color: var(--terracotta-deep);
+}
+
+.hearth--at-risk .hearth__mug {
+  color: var(--ochre-deep);
+}
+
+/* --- steam --------------------------------------------------------------- */
+
+.hearth__steam {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 26px;
+  pointer-events: none;
+}
+
+.hearth__steam-wisp {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  margin-left: -2.5px;
+  border-radius: var(--r-round);
+  background: var(--ink-faint);
+  opacity: 0;
+}
+
+.hearth__steam-wisp:nth-child(2) {
+  left: 30%;
+}
+
+.hearth__steam-wisp:nth-child(3) {
+  left: 70%;
+}
+
+/* --- body ---------------------------------------------------------------- */
+
+.hearth__body {
+  min-width: 0;
+  flex: 1;
+}
+
+.hearth__count {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-2);
+  margin: 1px 0 2px;
+}
+
+.hearth__days {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1;
+  font-variation-settings: 'SOFT' 40, 'WONK' 1, 'opsz' 36;
+  letter-spacing: -0.03em;
+}
+
+.hearth--lit .hearth__days {
+  color: var(--terracotta-deep);
+}
+
+.hearth__unit {
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+}
+
+.hearth__line {
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+.hearth__facts {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  margin-top: var(--s-2);
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
+}
+
+.hearth__facts strong {
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.hearth__freeze {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px var(--s-2);
+  border-radius: var(--r-round);
+  background: var(--slate-wash);
+  color: var(--slate);
+}

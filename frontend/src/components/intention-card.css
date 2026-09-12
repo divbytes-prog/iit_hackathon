@@ -1,0 +1,236 @@
+.intent {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-3) var(--s-3) var(--s-4);
+  background: var(--paper-raised);
+  border: 1px solid var(--paper-edge);
+  border-left: 3px solid var(--attr-hue);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-sm);
+  list-style: none;
+  transition:
+    box-shadow var(--t-fast) var(--ease-out),
+    border-color var(--t-fast) var(--ease-out),
+    opacity var(--t-med) var(--ease-out);
+}
+
+.intent:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.intent--done {
+  opacity: 0.62;
+  background: var(--paper-sunk);
+  box-shadow: none;
+}
+
+.intent--done:hover {
+  opacity: 0.85;
+}
+
+.intent--busy {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* --- the checkbox -------------------------------------------------------- */
+
+.intent__check {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  margin-top: -1px;
+  background: none;
+  border: none;
+  border-radius: var(--r-md);
+  cursor: pointer;
+}
+
+.intent__check:disabled {
+  cursor: wait;
+}
+
+.intent__check-box {
+  display: grid;
+  place-items: center;
+  width: 23px;
+  height: 23px;
+  color: transparent;
+  background: var(--paper);
+  border: 2px solid color-mix(in srgb, var(--attr-hue) 55%, var(--paper-edge));
+  border-radius: 7px;
+  box-shadow: var(--shadow-inset);
+  transition:
+    background-color var(--t-fast) var(--ease-out),
+    border-color var(--t-fast) var(--ease-out),
+    color var(--t-fast) var(--ease-out);
+}
+
+.intent__check:hover .intent__check-box {
+  border-color: var(--attr-hue);
+  background: color-mix(in srgb, var(--attr-hue) 10%, var(--paper));
+}
+
+.intent--done .intent__check-box {
+  color: #fff;
+  background: var(--attr-hue);
+  border-color: var(--attr-hue);
+  box-shadow: none;
+}
+
+[data-theme='midnight'] .intent--done .intent__check-box {
+  color: #1b1916;
+}
+
+/* --- content ------------------------------------------------------------- */
+
+.intent__body {
+  min-width: 0;
+  padding-top: 6px;
+}
+
+.intent__title {
+  font-size: var(--text-md);
+  font-weight: 550;
+  line-height: 1.35;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+  transition: color var(--t-med) var(--ease-out);
+}
+
+.intent--done .intent__title {
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: var(--ink-faint);
+  color: var(--ink-soft);
+}
+
+.intent__notes {
+  margin-top: 3px;
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.intent__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-2);
+}
+
+.intent__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px var(--s-2);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  background: var(--paper-sunk);
+  border-radius: var(--r-round);
+  white-space: nowrap;
+}
+
+.intent__chip--attr {
+  color: var(--attr-hue);
+  background: color-mix(in srgb, var(--attr-hue) 12%, transparent);
+}
+
+.intent__chip--repeat {
+  color: var(--slate);
+  background: var(--slate-wash);
+}
+
+.intent__chip--earned {
+  color: var(--ochre-deep);
+  background: var(--ochre-wash);
+  font-weight: 600;
+}
+
+.intent__chip--overdue {
+  color: var(--danger);
+  background: var(--danger-wash);
+  font-weight: 600;
+}
+
+.intent__chip--today {
+  color: var(--terracotta-deep);
+  background: var(--terracotta-wash);
+  font-weight: 600;
+}
+
+.intent__chip--tag::before {
+  content: '#';
+  opacity: 0.5;
+}
+
+/* Difficulty pips — five dots, filled to the tier. */
+.intent__pips {
+  display: inline-flex;
+  gap: 2px;
+  margin-right: 2px;
+}
+
+.intent__pips i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--paper-edge);
+}
+
+.intent__pips i.on {
+  background: var(--ink-faint);
+}
+
+/* --- actions ------------------------------------------------------------- */
+
+.intent__actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity var(--t-fast) var(--ease-out);
+}
+
+.intent:hover .intent__actions,
+.intent:focus-within .intent__actions {
+  opacity: 1;
+}
+
+/* Touch devices have no hover, so the controls are always visible there. */
+@media (hover: none) {
+  .intent__actions {
+    opacity: 1;
+  }
+}
+
+.intent__action {
+  color: var(--ink-faint);
+}
+
+.intent__action:hover {
+  color: var(--ink);
+}
+
+.intent__action--danger:hover {
+  color: var(--danger);
+  background: var(--danger-wash);
+}
+
+@media (max-width: 560px) {
+  .intent {
+    padding-left: var(--s-3);
+    gap: var(--s-2);
+  }
+
+  .intent__actions {
+    flex-direction: column;
+  }
+}

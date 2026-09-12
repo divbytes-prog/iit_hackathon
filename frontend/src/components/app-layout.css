@@ -1,0 +1,231 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+/* --- header -------------------------------------------------------------- */
+
+.appbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--header-h);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(12px) saturate(140%);
+  border-bottom: 1px solid var(--paper-edge);
+}
+
+.appbar__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--s-5);
+  height: 100%;
+}
+
+.appbar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  flex-shrink: 0;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 600;
+  font-variation-settings: 'SOFT' 30, 'WONK' 1, 'opsz' 20;
+  letter-spacing: -0.015em;
+}
+
+.appbar__mark {
+  display: grid;
+  place-items: center;
+  width: 29px;
+  height: 29px;
+  color: var(--terracotta-deep);
+  background: var(--terracotta-wash);
+  border-radius: var(--r-sm);
+}
+
+/* --- desktop nav --------------------------------------------------------- */
+
+.appbar__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
+  margin-right: auto;
+}
+
+.appbar__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  font-size: var(--text-sm);
+  font-weight: 550;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-radius: var(--r-md);
+  transition: color var(--t-fast), background-color var(--t-fast);
+}
+
+.appbar__link:hover {
+  color: var(--ink);
+  background: var(--paper-sunk);
+}
+
+.appbar__link--on {
+  color: var(--terracotta-deep);
+}
+
+.appbar__underline {
+  position: absolute;
+  left: var(--s-3);
+  right: var(--s-3);
+  bottom: 1px;
+  height: 2px;
+  border-radius: var(--r-round);
+  background: var(--terracotta);
+}
+
+/* --- stats --------------------------------------------------------------- */
+
+.appbar__stats {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  flex-shrink: 0;
+}
+
+.appbar__stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px var(--s-3);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: var(--paper-sunk);
+  border-radius: var(--r-round);
+}
+
+.appbar__stat-key {
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
+  font-weight: 500;
+}
+
+.appbar__stat--beans {
+  color: var(--ochre-deep);
+  background: var(--ochre-wash);
+}
+
+.appbar__stat--streak.is-lit {
+  color: var(--terracotta-deep);
+  background: var(--terracotta-wash);
+}
+
+.appbar__account {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  color: var(--ink-faint);
+}
+
+.appbar__account .btn {
+  color: var(--ink-faint);
+}
+
+.appbar__account .btn:hover {
+  color: var(--ink);
+}
+
+/* --- main ---------------------------------------------------------------- */
+
+.app__main {
+  flex: 1;
+  padding-block: var(--s-6) var(--s-8);
+}
+
+.app__main:focus {
+  outline: none;
+}
+
+/* --- mobile tab bar ------------------------------------------------------ */
+
+.tabbar {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .appbar__nav {
+    display: none;
+  }
+
+  .appbar__inner {
+    gap: var(--s-3);
+  }
+
+  .appbar__brand {
+    margin-right: auto;
+  }
+
+  .appbar__word {
+    display: none;
+  }
+
+  .appbar__stat--beans .visually-hidden,
+  .appbar__stat-key {
+    display: none;
+  }
+
+  .app__main {
+    padding-bottom: calc(var(--s-8) + 64px);
+  }
+
+  .tabbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 60;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    background: color-mix(in srgb, var(--paper) 94%, transparent);
+    backdrop-filter: blur(12px) saturate(140%);
+    border-top: 1px solid var(--paper-edge);
+  }
+
+  .tabbar__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    min-height: 56px;
+    padding: var(--s-2) var(--s-1);
+    font-size: 0.6875rem;
+    font-weight: 550;
+    color: var(--ink-faint);
+    text-decoration: none;
+    transition: color var(--t-fast);
+  }
+
+  .tabbar__link--on {
+    color: var(--terracotta-deep);
+  }
+
+  .tabbar__link span {
+    text-align: center;
+    line-height: 1.1;
+  }
+}
+
+@media (max-width: 380px) {
+  .appbar__stat {
+    padding-inline: var(--s-2);
+  }
+}

@@ -1,0 +1,27 @@
+.xpfloat {
+  position: fixed;
+  z-index: 85;
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 4px var(--s-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--ochre-deep);
+  background: var(--paper-raised);
+  border: 1px solid color-mix(in srgb, var(--ochre) 42%, transparent);
+  border-radius: var(--r-round);
+  box-shadow: var(--shadow-md);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.xpfloat__beans {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding-left: var(--s-2);
+  border-left: 1px solid var(--paper-edge);
+  color: var(--terracotta-deep);
+}
