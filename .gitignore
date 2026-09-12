@@ -18,6 +18,9 @@
 .env.*
 !.env.example
 !.env.template
+# Build-time public config. Vite inlines VITE_* into the shipped bundle, so
+# nothing secret can live in this file — it is committed deliberately.
+!.env.production
 
 # The Atlas onboarding file — contains a live username and password.
 atlas-credentials.env
