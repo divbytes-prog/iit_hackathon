@@ -9,7 +9,7 @@
     "node": ">=18.17.0"
   },
   "scripts": {
-    "main": "src/server.js"
+    "main": "src/server.js",
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
     "seed": "node src/seed/seedCatalog.js",
