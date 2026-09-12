@@ -248,7 +248,7 @@ const Desk = () => {
             </EmptyState>
           ) : (
             <ul className="desk__list">
-              <AnimatePresence initial={false} mode="popLayout">
+              <AnimatePresence initial={false}>
                 {items.map((task, index) => (
                   <IntentionCard
                     key={task.id}
@@ -279,7 +279,7 @@ const Desk = () => {
               </div>
 
               <ul className="desk__list">
-                <AnimatePresence initial={false} mode="popLayout">
+                <AnimatePresence initial={false}>
                   {doneToday.map((task, index) => (
                     <IntentionCard
                       key={task.id}

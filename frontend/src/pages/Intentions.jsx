@@ -323,7 +323,7 @@ const Intentions = () => {
           </p>
 
           <ul className="intentions__list">
-            <AnimatePresence initial={false} mode="popLayout">
+            <AnimatePresence initial={false}>
               {items.map((task, index) => (
                 <IntentionCard
                   key={task.id}
