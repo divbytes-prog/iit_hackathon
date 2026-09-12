@@ -58,17 +58,23 @@ const App = () => {
   /**
    * Apply the character's chosen record (theme) and motion preference to the
    * document element, where the CSS expects them.
+   *
+   * A signed-in character always gets `data-theme` stamped — including the
+   * default "daylight" — so an explicit choice beats the operating system.
+   * Someone who picked the cream record should not be handed a dark room just
+   * because their laptop is in night mode. A signed-out visitor has expressed
+   * no preference, so the attribute is removed and `prefers-color-scheme`
+   * decides.
    */
   useEffect(() => {
     const root = document.documentElement;
-    const theme = user?.preferences?.theme;
 
-    if (theme && theme !== 'daylight') root.dataset.theme = theme;
+    if (user) root.dataset.theme = user.preferences?.theme ?? 'daylight';
     else delete root.dataset.theme;
 
     if (user?.preferences?.reducedMotion) root.dataset.motion = 'reduced';
     else delete root.dataset.motion;
-  }, [user?.preferences?.theme, user?.preferences?.reducedMotion]);
+  }, [user, user?.preferences?.theme, user?.preferences?.reducedMotion]);
 
   /** Scroll to the top on navigation — the browser does not for a SPA. */
   useEffect(() => {
