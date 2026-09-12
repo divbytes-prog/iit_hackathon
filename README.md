@@ -13,10 +13,16 @@ repaint the entire interface.
 
 | | |
 |---|---|
-| **Live app** | _add your deployed URL here_ |
-| **API** | _add your deployed API URL here_ |
+| **Live app** | **https://hearthlog-web.vercel.app** |
+| **API** | https://hearthlog-api-theta.vercel.app/api/v1/health |
+| **Repository** | https://github.com/divbytes-prog/iit_hackathon |
 | **Walkthrough video** | _add your video link here_ |
 | **Stack** | React 18 · Vite · Express 4 · MongoDB Atlas · Mongoose 8 · JWT |
+
+> The web app proxies `/api/*` to the API deployment through a Vercel rewrite, so
+> the browser only ever talks to one origin. All 90 checks in the smoke suite pass
+> against the live deployment:
+> `API_URL=https://hearthlog-api-theta.vercel.app/api/v1 npm run test:api`
 
 ---
 

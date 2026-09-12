@@ -1,0 +1,9 @@
+# Vercel installs dependencies and runs the build itself.
+node_modules
+dist
+
+# Local secrets never belong in a deployment bundle. (.env.production is the
+# one exception — it holds only the public, relative API path — but Vercel
+# reads it from the repo at build time, so it must NOT be excluded.)
+.env
+.env.local

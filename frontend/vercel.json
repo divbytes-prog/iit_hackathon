@@ -5,8 +5,11 @@
   "framework": "vite",
   "rewrites": [
     {
-      "comment": "Client-side routing: every path renders index.html so a refresh or a deep link to /app/shelf resolves instead of 404ing.",
-      "source": "/((?!assets/|favicon|robots\\.txt|sitemap\\.xml|site\\.webmanifest).*)",
+      "source": "/api/:path*",
+      "destination": "https://hearthlog-api-theta.vercel.app/api/:path*"
+    },
+    {
+      "source": "/((?!api/|assets/|favicon|robots\\.txt|sitemap\\.xml|site\\.webmanifest).*)",
       "destination": "/index.html"
     }
   ],

@@ -1,0 +1,11 @@
+# Vercel installs dependencies itself.
+node_modules
+
+# Real secrets live in Vercel's environment variables, never in the bundle.
+.env
+.env.*
+
+# Not needed at runtime.
+tests
+.server.log
+.server.err.log
