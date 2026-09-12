@@ -1,0 +1,3 @@
+# Netlify: send every unknown path to the SPA so a deep link or a refresh on
+# /app/shelf does not 404.
+/*  /index.html  200

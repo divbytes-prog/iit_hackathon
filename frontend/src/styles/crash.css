@@ -1,0 +1,71 @@
+/* The error-boundary fallback. Deliberately dependency-free: if the app has
+   crashed, this may be rendering with a broken stylesheet, so it leans on the
+   tokens only for colour and degrades to readable defaults without them. */
+
+.crash {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  padding: var(--s-5, 1.5rem);
+  background: var(--paper, #fbf6ee);
+}
+
+.crash__card {
+  width: min(460px, 100%);
+  padding: var(--s-7, 3rem) var(--s-6, 2rem);
+  text-align: center;
+  background: var(--paper-raised, #fffdf8);
+  border: 1px solid var(--paper-edge, #e6dbc7);
+  border-radius: var(--r-lg, 16px);
+  box-shadow: var(--shadow-lg);
+}
+
+.crash__icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto var(--s-4, 1rem);
+  color: var(--danger, #b4453a);
+  background: var(--danger-wash, #f7e3e0);
+  border-radius: 999px;
+}
+
+.crash__title {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.5rem;
+  margin-bottom: var(--s-3, 0.75rem);
+}
+
+.crash__body {
+  font-size: 0.9375rem;
+  color: var(--ink-soft, #6b6153);
+  line-height: 1.6;
+}
+
+.crash__actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--s-3, 0.75rem);
+  margin-top: var(--s-6, 2rem);
+}
+
+.crash__detail {
+  max-height: 180px;
+  margin-top: var(--s-5, 1.5rem);
+  padding: var(--s-3, 0.75rem);
+  overflow: auto;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.6875rem;
+  text-align: left;
+  white-space: pre-wrap;
+  color: var(--ink-soft, #6b6153);
+  background: var(--paper-sunk, #f3ecdf);
+  border-radius: var(--r-sm, 6px);
+}
+
+@media (max-width: 420px) {
+  .crash__actions {
+    flex-direction: column;
+  }
+}

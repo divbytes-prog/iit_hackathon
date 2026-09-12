@@ -1,0 +1,12 @@
+{
+  "name": "Hearthlog — a cozy Life RPG",
+  "short_name": "Hearthlog",
+  "description": "Turn reading, walking, making and tidying into a quiet progression system.",
+  "start_url": "/app",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fbf6ee",
+  "theme_color": "#c97b5a",
+  "orientation": "portrait-primary",
+  "categories": ["productivity", "lifestyle"]
+}
