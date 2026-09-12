@@ -5,6 +5,7 @@
   "description": "Hearthlog — a cozy Life RPG for people whose to-do list has stopped working.",
   "type": "module",
   "scripts": {
+    "start": "npm run dev",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
